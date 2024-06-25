@@ -38,6 +38,10 @@
   border-end-start-radius: 30% !important;
 }
 
+.right p {
+  text-align: center;
+}
+
 .link {
   text-decoration: none;
   border-color: #fff !important;

@@ -8,24 +8,24 @@ const SignUpForm = () => {
         <input
           type="text"
           className="form-control border-0 shadow-none"
-          placeholder="Name"
+          placeholder="Nom d'utilisateur"
         />
       </div>
       <div className="mb-3">
         <input
           type="email"
           className="form-control border-0 shadow-none"
-          placeholder="Email"
+          placeholder="Adrèsse mail"
         />
       </div>
       <div className="mb-3">
         <input
           type="password"
           className="form-control border-0 shadow-none"
-          placeholder="Password"
+          placeholder="Mot(s) de passe"
         />
       </div>
-      <Button>SIGN UP</Button>
+      <Button type={"submit"}>S'INSCRIRE</Button>
     </form>
   );
 };

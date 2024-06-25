@@ -10,17 +10,21 @@ const SignUp = () => {
   return (
     <div className={`${signUp} rounded-4 shadow`}>
       <div className={`${left} rounded-4 text-white px-4 py-5`}>
-        <Title size={"6"} text={"Hello, Friend"} />
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <Title size={"6"} text={"MG-Store"} />
+        <p>
+          Si vous avez déjà un compte, vous pouvez <br /> vous connectez
+        </p>
         <Link to={"/"} className={`btn ${link}`}>
-          SIGN IN
+          SE CONNECTER
         </Link>
       </div>
 
       <div className={`${right} px-4 py-5 rounded-4`}>
-        <Title size={"6"} text={"Sign Up"} />
+        <Title size={"6"} text={"Inscription"} />
         <SocialNetworks />
-        <div className="text-secondary my-3">or use your email & password</div>
+        <div className="text-secondary my-3">
+          ou utiliser votre @mail & mots de passse
+        </div>
         <SignUpForm />
       </div>
     </div>

@@ -20,6 +20,10 @@
   border-start-end-radius: 30% !important;
 }
 
+.left p {
+  text-align: center;
+}
+
 .link {
   text-decoration: none;
   border-color: #fff !important;
