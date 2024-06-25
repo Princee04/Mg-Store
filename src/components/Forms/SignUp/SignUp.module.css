@@ -1,0 +1,45 @@
+:root {
+  --secondary-color: #6c757d;
+  --bg-input: #dcdcdc;
+  --btn-color: #38ab4d;
+}
+
+.signUp {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--btn-color);
+  border-end-end-radius: 30% !important;
+  border-start-end-radius: 30% !important;
+}
+
+.left button {
+  border-color: #fff !important;
+  color: inherit;
+  font-weight: bold;
+}
+
+.right input {
+  background-color: var(--bg-input) !important;
+}
+
+.right input::placeholder {
+  color: var(--secondary-color);
+}
+
+.right form button {
+  background-color: var(--btn-color) !important;
+  color: #fff !important;
+  font-weight: bold;
+}
+
+.right {
+  text-align: center;
+}
