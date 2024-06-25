@@ -1,19 +1,27 @@
 import React from "react";
-import { signUp, left, right, link } from "./SignUp.module.css";
+import { signUp, left, right, link, typedText } from "./SignUp.module.css";
 import Title from "../../Title/Title";
-import Button from "../../Buttons/Button";
 import SignUpForm from "./SignUpForm/SignUpForm";
 import SocialNetworks from "../../SocialNetworks/SocialNetworks";
 import { Link } from "react-router-dom";
+import { ReactTyped } from "react-typed";
 
 const SignUp = () => {
   return (
     <div className={`${signUp} rounded-4 shadow`}>
       <div className={`${left} rounded-4 text-white px-4 py-5`}>
         <Title size={"6"} text={"MG-Store"} />
-        <p>
-          Si vous avez déjà un compte, vous pouvez <br /> vous connectez
-        </p>
+        <div className={`${typedText} mb-2`}>
+          <ReactTyped
+            className={`text-center`}
+            strings={[
+              "Si vous avez déjà un compte, vous <br /> pouvez vous connectez",
+            ]}
+            typeSpeed={50}
+            backSpeed={10}
+            loop
+          />
+        </div>
         <Link to={"/"} className={`btn ${link}`}>
           SE CONNECTER
         </Link>

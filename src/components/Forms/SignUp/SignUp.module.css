@@ -20,7 +20,8 @@
   border-start-end-radius: 30% !important;
 }
 
-.left p {
+.typedText {
+  width: 360px;
   text-align: center;
 }
 
