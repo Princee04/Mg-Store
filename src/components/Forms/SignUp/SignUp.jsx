@@ -1,9 +1,10 @@
 import React from "react";
-import { signUp, left, right } from "./SignUp.module.css";
+import { signUp, left, right, link } from "./SignUp.module.css";
 import Title from "../../Title/Title";
 import Button from "../../Buttons/Button";
 import SignUpForm from "./SignUpForm/SignUpForm";
 import SocialNetworks from "../../SocialNetworks/SocialNetworks";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   return (
@@ -11,7 +12,9 @@ const SignUp = () => {
       <div className={`${left} rounded-4 text-white px-4 py-5`}>
         <Title size={"6"} text={"Hello, Friend"} />
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <Button>SIGN IN</Button>
+        <Link to={"/"} className={`btn ${link}`}>
+          SIGN IN
+        </Link>
       </div>
 
       <div className={`${right} px-4 py-5 rounded-4`}>

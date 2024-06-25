@@ -20,7 +20,8 @@
   border-start-end-radius: 30% !important;
 }
 
-.left button {
+.link {
+  text-decoration: none;
   border-color: #fff !important;
   color: inherit;
   font-weight: bold;
