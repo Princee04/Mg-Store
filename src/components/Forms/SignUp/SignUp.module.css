@@ -2,6 +2,7 @@
   --secondary-color: #6c757d;
   --bg-input: #dcdcdc;
   --btn-color: #38ab4d;
+  --text-color: #13405a;
 }
 
 .signUp {
@@ -32,6 +33,14 @@
   font-weight: bold;
 }
 
+.right {
+  text-align: center;
+}
+
+.right div:first-of-type {
+  color: var(--text-color);
+}
+
 .right input {
   background-color: var(--bg-input) !important;
 }
@@ -44,8 +53,4 @@
   background-color: var(--btn-color) !important;
   color: #fff !important;
   font-weight: bold;
-}
-
-.right {
-  text-align: center;
 }

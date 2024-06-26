@@ -1,3 +1,7 @@
+:root {
+  --text-color: #13405a;
+}
+
 .socialNetworks {
   display: flex;
   justify-content: center;
@@ -7,4 +11,5 @@
 .socialNetworks button {
   border-radius: 50%;
   box-shadow: 2px 2px 4px var(--bg-input);
+  color: var(--text-color);
 }

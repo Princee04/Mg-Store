@@ -2,6 +2,7 @@
   --secondary-color: #6c757d;
   --bg-input: #dcdcdc;
   --btn-color: #38ab4d;
+  --text-color: #13405a;
 }
 
 .signIn {
@@ -12,6 +13,10 @@
 
 .left {
   text-align: center;
+}
+
+.left:first-child {
+  color: var(--text-color);
 }
 
 .left input {

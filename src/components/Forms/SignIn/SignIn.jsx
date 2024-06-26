@@ -13,7 +13,7 @@ const SignIn = () => {
         <Title size={"6"} text={"Connexion"} />
         <SocialNetworks />
         <div className="text-secondary mb-3">
-          ou utiliser votre @mail & mots de passse
+          ou utiliser votre @mail & mots de passe
         </div>
         <SignInForm />
       </div>

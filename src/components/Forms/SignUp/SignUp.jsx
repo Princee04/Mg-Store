@@ -31,7 +31,7 @@ const SignUp = () => {
         <Title size={"6"} text={"Inscription"} />
         <SocialNetworks />
         <div className="text-secondary my-3">
-          ou utiliser votre @mail & mots de passse
+          ou utiliser votre @mail & mots de passe
         </div>
         <SignUpForm />
       </div>
