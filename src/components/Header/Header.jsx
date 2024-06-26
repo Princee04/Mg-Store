@@ -1,5 +1,5 @@
 import xxx from '/xxx.png'
-import { FaShopify } from 'react-icons/fa';
+import { FaShoppingCart } from 'react-icons/fa';
 // import Link  from 'react-router-dom';
 
 const Header = () => {
@@ -16,10 +16,11 @@ const Header = () => {
                 <Link to="></Link>
                 <Link to=""></Link>
                 <Link to=""></Link> */}
-                <a href="">Acceuil</a>
-                <a href="">Articles</a>
-                <a href="">Ventes</a>
-                <a href="">Blog</a>
+                <div><a href="">Acceuil</a></div>
+                <div><a href="">Articles</a></div>
+                <div><a href="">Ventes</a></div>   
+                <div><a href="">Blog</a></div>
+           
             </div>
             <div className="profil-parameters">
 
@@ -27,7 +28,7 @@ const Header = () => {
                         <img src={xxx} alt="" />
                 </div>   
                 <div className="shop">
-                    <FaShopify />
+                    <FaShoppingCart className='shoppingCart'  fill='grey'/>
                 </div>
             </div>
          

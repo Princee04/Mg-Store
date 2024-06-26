@@ -6,6 +6,11 @@
     font-family: "poppins", sans-serif;
 }
 
+a{
+    text-decoration: none;
+    color: #13405a;
+    font-weight: bold;
+}
 
 
 .container {
@@ -52,6 +57,39 @@
     height: 100%;
     border-radius: 50%;
 }
+
+.profil-parameters {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.shop {
+    border-left: solid grey ;
+    margin-left: 7px;
+    padding: 5px;
+}
+
+.shoppingCart{
+    width: 25px;
+    height: 25px;
+}
+
+.link{
+
+    display: flex;
+    justify-content: space-around;
+    border:  solid white;
+    border-radius: 30px;
+  
+}
+
+.link > div {
+    width: 100px;
+    margin-left: 50px;
+}
+
+
 
 /* style du wave */
 
