@@ -1,4 +1,6 @@
-import xxx from '../../../public/xxx.png'
+import xxx from '/xxx.png'
+import { FaShopify } from 'react-icons/fa';
+// import Link  from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -9,10 +11,26 @@ const Header = () => {
                
             </div>
             <div className="link">
+                {/* <Link to="">Acceuil</Link>
+                <Link to="}>Articles</Link>
+                <Link to="></Link>
+                <Link to=""></Link>
+                <Link to=""></Link> */}
+                <a href="">Acceuil</a>
+                <a href="">Articles</a>
+                <a href="">Ventes</a>
+                <a href="">Blog</a>
             </div>
             <div className="profil-parameters">
-                Profil
+
+                <div className="profil-container">
+                        <img src={xxx} alt="" />
+                </div>   
+                <div className="shop">
+                    <FaShopify />
+                </div>
             </div>
+         
         </div>
     );
 }
