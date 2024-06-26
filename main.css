@@ -1,12 +1,12 @@
+
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: "poppins", sans-serif;
 }
 
-body{
-    /* background-color: #38ab4d; */
-}
+
 
 .container {
     height: 100vh;
@@ -27,6 +27,11 @@ body{
     /* background-color: red; */
 }
 
+.logo h3{
+    color: #38ab4d;
+    text-shadow: 1px 1px 1px black;
+}
+
 .logo{
   
     display: flex;
@@ -38,7 +43,7 @@ body{
 
 .wave-container {
     position: relative;
-    top: -24rem;
+    top: -25rem;
 }
   /* style de l'intro */
   .intro-container {
@@ -82,8 +87,11 @@ body{
 
   /* style du lottie */
 .lottie-container{
-    
+    position: relative;
+    top: -8rem;
 }
+
+
   
 /* style du body */
 
