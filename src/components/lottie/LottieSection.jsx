@@ -10,7 +10,7 @@ const LottieSection = () => {
         }
       }
     return (
-        <div>
+        <div className='lottie-container'>
             <Lottie options={optionOne} width={800} height={800} />
         </div>
     );
