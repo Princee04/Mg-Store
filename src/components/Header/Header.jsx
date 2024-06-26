@@ -16,19 +16,24 @@ const Header = () => {
                 <Link to="></Link>
                 <Link to=""></Link>
                 <Link to=""></Link> */}
-                <div><a href="">Acceuil</a></div>
+                {/* to ovana link rehefa vo configurer le routage */}
+                <div className='active'><a  href="">Acceuil</a></div>
                 <div><a href="">Articles</a></div>
                 <div><a href="">Ventes</a></div>   
                 <div><a href="">Blog</a></div>
            
             </div>
             <div className="profil-parameters">
-
+                    
                 <div className="profil-container">
-                        <img src={xxx} alt="" />
+                    <img src={xxx} alt="" />
                 </div>   
                 <div className="shop">
                     <FaShoppingCart className='shoppingCart'  fill='grey'/>
+                </div>
+                <div className="menu">
+                    <div className="un">Profil</div>
+                    <div className="deux">Logout</div>
                 </div>
             </div>
          
