@@ -15,6 +15,7 @@ const Intro = () => {
                      tenetur magni! Ipsam neque quam eum, animi rerum amet eius, corporis, quae consequuntur obcaecati tempore.
                 </p>
             </div>
+            <button className='start-btn'>Commencer</button>
            
         </div>
     );
