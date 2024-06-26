@@ -54,3 +54,9 @@
   color: #fff !important;
   font-weight: bold;
 }
+
+@media (max-width: 768px) {
+  .left {
+    display: none;
+  }
+}

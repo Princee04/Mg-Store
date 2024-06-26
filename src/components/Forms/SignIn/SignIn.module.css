@@ -54,3 +54,9 @@
   color: inherit;
   font-weight: bold;
 }
+
+@media (max-width: 768px) {
+  .right {
+    display: none;
+  }
+}

@@ -1,0 +1,9 @@
+.helpLink {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .helpLink {
+    display: block;
+  }
+}
