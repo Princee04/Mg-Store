@@ -1,9 +1,10 @@
 import React from 'react';
+import { FaMobile , FaArrowAltCircleRight} from 'react-icons/fa';
 
 const Intro = () => {
     return (
         <div className='intro-container'>
-            <h1>Vente en ligne</h1>
+            <h1>Madagascar Store</h1>
             <h2>Plateforme Malagasy de vente </h2>
             <div className="text-container">
                 <p>
@@ -15,7 +16,11 @@ const Intro = () => {
                      tenetur magni! Ipsam neque quam eum, animi rerum amet eius, corporis, quae consequuntur obcaecati tempore.
                 </p>
             </div>
-            <button className='start-btn'>Commencer</button>
+            <div className="btns-container">
+
+            <button className='start-btn'>Commencer <FaArrowAltCircleRight className='arrow'/></button>
+            <button className='start-btn'>Sur Mobile <FaMobile /></button>
+            </div>
            
         </div>
     );
