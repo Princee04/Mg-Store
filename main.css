@@ -1,0 +1,36 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 100vh;
+    overflow: hidden;
+    padding: 20px;
+    width: 100%;
+}
+
+/* style du header */
+.header-container{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: red; */
+}
+
+.logo{
+    /* border: solid; */
+    /* width: 40%; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* .logo {
+display: flex;
+flex-wrap: nowrap;
+justify-content: space-between;
+} */
