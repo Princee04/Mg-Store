@@ -35,10 +35,13 @@ body{
 
 .container-css {
     height: 100vh;
-    overflow: hidden;
+    /* overflow: hidden; */
     /* padding: 5px; */
     width: 100%;
     margin: auto;
+    border: solid whitesmoke .3px;
+    border-radius: 3px;
+    /* box-shadow:  0px 0px 0px 0px; */
     /* background-color: #fff; */
 }
 
@@ -113,6 +116,12 @@ body{
     z-index:100000;
 }
 
+#root{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 
 
 /* style du wave */
@@ -152,6 +161,7 @@ body{
   .btns-container{
       display: flex;
       flex-direction: row;
+      align-items: center;
     }
     
     .start-btn {
@@ -171,10 +181,22 @@ body{
         /* box-shadow: 1px 1px 1p; */
         
     }
+
+    .test, .test2{
+        z-index: 100000;
+        text-decoration: none;
+    }
+
+   
+
     
+    .btns-container .start-btn{
+        cursor: pointer;
+        z-index: 1000000;
+    }
     #start{
       color: #13405a;
-      border: solid 4px #13405a;
+      border: solid 2px #13405a;
       background-color: white;
     }
 

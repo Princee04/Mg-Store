@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaMobile , FaArrowAltCircleRight} from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Intro = () => {
     return (
@@ -18,8 +19,8 @@ const Intro = () => {
             </div>
             <div className="btns-container">
 
-            <button id='start' className='start-btn '>Commencer <FaArrowAltCircleRight className='arrow'/></button>
-            <button className='start-btn'>Sur Mobile <FaMobile /></button>
+            <Link className='test' to="/articles"><button id='start' className='start-btn '>Commencer <FaArrowAltCircleRight className='arrow'/></button></Link>
+            <Link  className='test2' to="/telechargements"><button className='start-btn'>Sur Mobile <FaMobile /></button></Link>
             </div>
            
         </div>

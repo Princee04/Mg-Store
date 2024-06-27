@@ -12,10 +12,10 @@ const Header = () => {
             </div>
             <div className="link">
 
-                <Link  to="/">Acceuil</Link>
-                <Link to="">Articles</Link>
-                <Link to="">Ventes</Link>
-                <Link to="">Blog</Link>      
+                <Link style={{textDecoration:'none',color:'#13405a'}} to="/">Acceuil</Link>
+                <Link style={{textDecoration:'none',color:'#13405a'}} to="">Articles</Link>
+                <Link style={{textDecoration:'none',color:'#13405a'}} to="">Ventes</Link>
+                <Link style={{textDecoration:'none',color:'#13405a'}} to="">Blog</Link>      
            
             </div>
             <div className="profil-parameters">

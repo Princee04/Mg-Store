@@ -4,7 +4,7 @@ import Body from "../body/Body"
 import Wave from "../wave/Wave"
 const Home = () => {
     return (
-        <div>
+        <div className='container-css'>
             <Header />
             <Body />
             <Wave /> 
