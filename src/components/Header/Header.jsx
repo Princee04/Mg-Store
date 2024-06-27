@@ -1,6 +1,6 @@
 import xxx from '/xxx.png'
 import { FaShoppingCart } from 'react-icons/fa';
-// import Link  from 'react-router-dom';
+import {Link}  from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -11,16 +11,11 @@ const Header = () => {
                
             </div>
             <div className="link">
-                {/* <Link to="">Acceuil</Link>
-                <Link to="}>Articles</Link>
-                <Link to="></Link>
-                <Link to=""></Link>
-                <Link to=""></Link> */}
-                {/* to ovana link rehefa vo configurer le routage */}
-                <div className='active'><a  href="">Acceuil</a></div>
-                <div><a href="">Articles</a></div>
-                <div><a href="">Ventes</a></div>   
-                <div><a href="">Blog</a></div>
+
+                <Link  to="/">Acceuil</Link>
+                <Link to="">Articles</Link>
+                <Link to="">Ventes</Link>
+                <Link to="">Blog</Link>      
            
             </div>
             <div className="profil-parameters">
