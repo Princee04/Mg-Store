@@ -18,7 +18,7 @@ const Intro = () => {
             </div>
             <div className="btns-container">
 
-            <button className='start-btn'>Commencer <FaArrowAltCircleRight className='arrow'/></button>
+            <button id='start' className='start-btn '>Commencer <FaArrowAltCircleRight className='arrow'/></button>
             <button className='start-btn'>Sur Mobile <FaMobile /></button>
             </div>
            

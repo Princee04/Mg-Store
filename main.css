@@ -148,29 +148,35 @@ body{
  
   }
 
+  
   .btns-container{
-    display: flex;
-    flex-direction: row;
-  }
-
-  .start-btn {
-    padding: 10px 30px;
-    border-radius: 5px;
-    border: none;
-    background-color: #077062;
-    color: white;
-    margin-top: 2rem;
-    font-weight: bold;
-    margin-right: 5px;
-    cursor: pointer;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-
-    /* box-shadow: 1px 1px 1p; */
-
-  }
-
+      display: flex;
+      flex-direction: row;
+    }
+    
+    .start-btn {
+        padding: 10px 30px;
+        border-radius: 5px;
+        border: none;
+        background-color: #077062;
+        color: white;
+        margin-top: 2rem;
+        font-weight: bold;
+        margin-right: 5px;
+        cursor: pointer;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        
+        /* box-shadow: 1px 1px 1p; */
+        
+    }
+    
+    #start{
+      color: #13405a;
+      border: solid 4px #13405a;
+      background-color: white;
+    }
 
 
   .arrow{
