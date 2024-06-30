@@ -27,6 +27,13 @@ const SignUpForm = () => {
           placeholder="Mot(s) de passe"
         />
       </div>
+      <div className="mb-3">
+        <input
+          type="password"
+          className="form-control border-0 shadow-none"
+          placeholder="Confirmation mot(s) de passe"
+        />
+      </div>
       <div className={`${helpLink} mb-3`}>
         Déja inscrit? <Link to={"/"}>Se connecter</Link>
       </div>
