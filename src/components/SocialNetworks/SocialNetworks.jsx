@@ -1,5 +1,5 @@
 import React from "react";
-import { Facebook, Github, Google, Twitter } from "react-bootstrap-icons";
+import { Facebook, Github, Google } from "react-bootstrap-icons";
 import Button from "../Buttons/Button";
 import { socialNetworks } from "./SocialNetworks.module.css";
 import {
@@ -19,9 +19,6 @@ const SocialNetworks = () => {
       </Button>
       <Button click={signInWithGithub}>
         <Github />
-      </Button>
-      <Button>
-        <Twitter />
       </Button>
     </div>
   );
