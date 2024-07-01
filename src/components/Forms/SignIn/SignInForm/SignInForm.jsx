@@ -5,6 +5,7 @@ import { helpLink } from "./SignInForm.module.css";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { doSignInWithEmailAndPassword } from "../../../../firebase/auths";
 
 const schema = z.object({
   email: z.string().email(),
@@ -15,22 +16,15 @@ const SignInForm = () => {
   const {
     register,
     handleSubmit,
-    setError,
     formState: { errors, isSubmitting },
   } = useForm({
     resolver: zodResolver(schema),
   });
 
-  const onSubmit = async (data) => {
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      // throw new Error();
-      console.log(data);
-    } catch (error) {
-      setError("root", {
-        message: "Adrèsse email déja utilisé ou mot(s) de passe incorrecte",
-      });
-    }
+  const onSubmit = async ({ email, password }) => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await doSignInWithEmailAndPassword(email, password);
+    console.log(email, password);
   };
 
   return (
