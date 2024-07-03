@@ -13,31 +13,24 @@ const App = () => {
 
   const items = [
     {
-      id: 6,
-      name: "Letchi de Madagascar",
-      quantity: 1,
-      price: 15.0,
-      originalPrice: 25.0,
-      product: product.letchi,
-      unite: "Kg",
-      disponible: false,
-    },
-    {
       id: 1,
       name: "Fraise d'Antsirabe",
       quantity: 1,
       price: 10000,
       product: product.fraise,
       unite: "Kg",
+      stockage: 8,
       disponible: true,
     },
     {
       id: 2,
       name: "Ananas d'Ampanefena",
+      quantity: 1,
       price: 2000.0,
       originalPrice: 2600.0,
       product: product.ananas,
-      unite: "chacun",
+      unite: "Kg",
+      stockage: 9,
       disponible: true,
     },
     {
@@ -48,6 +41,7 @@ const App = () => {
       originalPrice: 6000.0,
       product: product.pomme,
       unite: "Kg",
+      stockage: 4,
       disponible: true,
     },
     {
@@ -58,6 +52,7 @@ const App = () => {
       originalPrice: 20.0,
       product: product.tsiaiko,
       unite: "Kg",
+      stockage: 5,
       disponible: true,
     },
     {
@@ -68,12 +63,24 @@ const App = () => {
       originalPrice: 3500.0,
       product: product.raisin,
       unite: "Kg",
+      stockage: 7,
       disponible: true,
+    },
+    {
+      id: 6,
+      name: "Letchi de Madagascar",
+      quantity: 1,
+      price: 15.0,
+      originalPrice: 25.0,
+      product: product.letchi,
+      unite: "Kg",
+      stockage: 3,
+      disponible: false,
     },
   ];
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5" style={{ width: "500px" }}>
       <Card items={items} />
     </div>
   );

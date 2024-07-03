@@ -1,83 +1,53 @@
 import React, { useState } from "react";
+import { FaTrash } from "react-icons/fa";
+import styles from "./cardItem.module.css";
 
 const CardItem = ({ item }) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(item.quantity);
 
-  const Minus = () => {
-    count > 0 ? setCount(count - 1) : setCount(count);
+  const handleDecreaseQuantity = () => {
+    if (count > 0) {
+      setCount(count - 1);
+      item.quantity--;
+    }
   };
 
-  const Plus = () => {
-    setCount(count + 1);
+  const handleIncreaseQuantity = () => {
+    if (count < item.stockage) {
+      setCount(count + 1);
+      item.quantity++;
+    }
   };
 
   return (
-    <div
-      className="d-flex justify-content-between align-items-center mb-3"
-      style={{ borderBottom: "1px solid grey" }}
-    >
-      <img
-        src={item.product}
-        alt={item.name}
-        style={{
-          width: "70px",
-          height: "70px",
-        }}
-      />
+    <div className=" d-flex mb-3" id={styles.container}>
+      <img src={item.product} alt={item.name} id={styles.img} />
 
       <div className="flex-grow-1 ms-3">
-        <h5
-          className={`mb-2`}
-          style={{ color: item.disponible ? "black" : "red" }}
-        >
-          {item.name}
-        </h5>
-        <p className="mb-0">
-          {item.quantity}
-          {item.unite}
-        </p>
+        <h6 className={`mb-0`}>{item.name}</h6>
+        <div className="mb-1">{item.quantity + item.unite}</div>
+        <FaTrash className="text-danger mb-3" />
       </div>
-      <div className="">
+      <div className="Add">
+        <div className="mt-2">{item.price.toFixed(2) * item.quantity} Ar</div>
         <div className="input-group justify-content-end">
           <button
             className="btn btn-outline-secondary"
-            onClick={Minus}
-            style={{ color: "white", fontSize: "20px", background: "#13405a" }}
+            onClick={handleDecreaseQuantity}
+            id={styles.btn}
           >
             -
           </button>
-          <div
-            style={{
-              alignItems: "center",
-              height: "auto",
-              width: "35px",
-              border: "1px solid transparent",
-              textAlign: "center",
-              lineHeight: "40px",
-              color: "white",
-              fontSize: "20px",
-              background: "#13405a",
-            }}
-          >
+          <div className="btn btn-outline-secondary" id={styles.counter}>
             {count}
           </div>
           <button
             className="btn btn-outline-secondary"
-            onClick={Plus}
-            style={{ color: "white", fontSize: "20px", background: "#13405a" }}
+            onClick={handleIncreaseQuantity}
+            id={styles.btn}
           >
             +
           </button>
-        </div>
-        <div>
-          <p style={{ color: item.disponible ? "black" : "red" }}>
-            {item.price.toFixed(2)} Ariary
-          </p>
-          {item.originalPrice && (
-            <p className="mb-0 text-muted text-decoration-line-through">
-              {item.originalPrice.toFixed(2)} Ariary
-            </p>
-          )}
         </div>
       </div>
     </div>
