@@ -6,15 +6,10 @@ const Intro = () => {
     return (
         <div className='intro-container'>
             <h1>Madagascar Store</h1>
-            <h2>Plateforme Malagasy de vente </h2>
+            <h2>Plateforme de vente  Malagasy </h2>
             <div className="text-container">
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, facilis fuga? Reprehenderit dolorem explicabo earum 
-                    quis vitae perspiciatis at quasi unde, corrupti vel accusamus ipsum commodi cupiditate? Dolore, fugiat dolorem.
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex recusandae dolorem non in quidem veniam, quisquam iusto 
-                    tempora, magni, quae harum alias sed. Cum, maiores consequuntur. Consequuntur saepe aspernatur repellat?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut labore ipsam rerum officiis, pariatur perspiciatis
-                     tenetur magni! Ipsam neque quam eum, animi rerum amet eius, corporis, quae consequuntur obcaecati tempore.
+                Découvrez notre application révolutionnaire de vente en ligne, disponible aussi bien sur mobile que sur web. Parcourez notre vaste catalogue et trouvez tout ce dont vous avez besoin, du confort de votre téléphone ou de votre ordinateur. Grâce à une interface intuitive, naviguez facilement entre les catégories, explorez des produits variés et faites vos achats en toute simplicité. Notre plateforme vous offre une expérience de shopping fluide et sécurisée, où chaque article est à portée de clic. Simplifiez votre vie avec notre application, votre nouvel allié pour des achats pratiques et efficaces, où que vous soyez.
                 </p>
             </div>
             <div className="btns-container">
