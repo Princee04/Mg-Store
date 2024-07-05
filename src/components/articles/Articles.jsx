@@ -2,6 +2,8 @@ import React from 'react';
 import Header from "../Header/Header"
 import Caroussel from '../caroussel/Caroussel';
 import ListGroup from 'react-bootstrap/ListGroup';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Product from '../product/Product';
 
 
 
@@ -17,7 +19,7 @@ const Articles = () => {
             </div>
 
             <div className="container mt-4">
-                <h3 className='text-center text-success'>Listes Des Articles</h3>
+                <h3 className='text-center text-success mb-3'>Listes Des Articles</h3>
                 <div className="row">
                     <div className="col-1 mx-2"><button className='btn btn-success'>Rechercher</button></div>
                     <div className="col-4">
@@ -33,7 +35,15 @@ const Articles = () => {
                             </ListGroup>
                     </div>
                 </div>
-               
+                <div className="container p-4 d-flex flex-wrap gap-3">
+                    <Product />
+                    <Product />
+                    <Product />
+                    <Product />
+                </div>
+                <div className="container text-center">
+                    <button className='btn btn-success'>Plus</button>
+                </div>
             </div>
         </div>
     );
