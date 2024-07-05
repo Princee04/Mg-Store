@@ -110,11 +110,15 @@ text-decoration: none;
     border-left: solid grey ;
     margin-left: 7px;
     padding: 5px;
+    z-index: 1000000;
 }
 
 .shoppingCart{
     width: 25px;
     height: 25px;
+    z-index: 1000000;
+    cursor: pointer;
+
 }
 
 .link{

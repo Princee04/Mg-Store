@@ -24,7 +24,7 @@ const Header = ({page}) => {
                     <img src={xxx} alt="" />
                 </div>   
                 <div className="shop">
-                    <FaShoppingCart className='shoppingCart'  fill='grey'/>
+                   <Link to='/panier'><FaShoppingCart className='shoppingCart'  fill={page=='panier'?'green':'grey'}/></Link> 
                 </div>
                 <div className="menu">
                     <div className="un"><Link className='un' to=''>Profil</Link></div>
