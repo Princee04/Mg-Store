@@ -249,3 +249,12 @@ body{
     background-color: #13405a;
     color: white;
 }
+
+#active {
+    background-color: #38ab4d; 
+    border-radius: 4px;
+    color: white;
+    transition: background 1s;
+    /* padding: 2px; */
+    /* background-color: #077062; */
+}

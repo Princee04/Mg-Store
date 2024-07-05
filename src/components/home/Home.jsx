@@ -5,7 +5,7 @@ import Wave from "../wave/Wave"
 const Home = () => {
     return (
         <div className='container-css'>
-            <Header />
+            <Header page='home'/>
             <Body />
             <Wave /> 
         </div>

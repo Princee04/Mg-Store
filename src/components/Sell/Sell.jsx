@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 const Sell = () => {
     return (
         <div>
-            <Header/>
+            <Header page='vendres'/>
             <div className="container mt-5">
                 <h3 className='text-center text-success'>Formulaire de Vente</h3>
                 <div className="form-container mt-5">

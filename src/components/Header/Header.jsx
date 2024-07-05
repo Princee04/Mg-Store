@@ -2,7 +2,7 @@ import xxx from '/xxx.png'
 import { FaShoppingCart } from 'react-icons/fa';
 import {Link}  from 'react-router-dom';
 
-const Header = () => {
+const Header = ({page}) => {
     return (
         <div className='header-container'>
             <div className="logo">
@@ -12,10 +12,10 @@ const Header = () => {
             </div>
             <div className="link">
 
-                <Link style={{textDecoration:'none',color:'#13405a'}} to="/">Acceuil</Link>
-                <Link style={{textDecoration:'none',color:'#13405a'}} to="/articles">Articles</Link>
-                <Link style={{textDecoration:'none',color:'#13405a'}} to="/vendres">Ventes</Link>
-                <Link style={{textDecoration:'none',color:'#13405a'}} to="">Blog</Link>      
+                <Link id={page=='home'?'active':''} style={{textDecoration:'none',color:'#13405a'}} to="/">Acceuil</Link>
+                <Link id={page=='articles'?'active':''}  style={{textDecoration:'none',color:'#13405a'}} to="/articles">Articles</Link>
+                <Link id={page=='vendres'?'active':''} style={{textDecoration:'none',color:'#13405a'}} to="/vendres">Ventes</Link>
+                <Link id={page=='blog'?'active':''}  style={{textDecoration:'none',color:'#13405a'}} to="">Blog</Link>      
            
             </div>
             <div className="profil-parameters">

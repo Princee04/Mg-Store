@@ -13,7 +13,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 const Articles = () => {
     return (
         <div>
-            <Header />
+            <Header page='articles'/>
             <div className="caroussel-container">
                 <Caroussel />
             </div>
