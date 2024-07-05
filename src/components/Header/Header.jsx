@@ -14,7 +14,7 @@ const Header = () => {
 
                 <Link style={{textDecoration:'none',color:'#13405a'}} to="/">Acceuil</Link>
                 <Link style={{textDecoration:'none',color:'#13405a'}} to="/articles">Articles</Link>
-                <Link style={{textDecoration:'none',color:'#13405a'}} to="">Ventes</Link>
+                <Link style={{textDecoration:'none',color:'#13405a'}} to="/vendres">Ventes</Link>
                 <Link style={{textDecoration:'none',color:'#13405a'}} to="">Blog</Link>      
            
             </div>
