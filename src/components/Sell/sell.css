@@ -2,3 +2,24 @@
     border:1px solid #38ab4d;
     outline: #38ab4d;
 }
+
+#description{
+    height: 130px;
+}
+
+.sell-footer {
+    position: absolute;
+    bottom: 2px;
+    margin-left: 20%;
+    display: grid;
+    grid-template-columns: 2fr  1fr 2fr 1fr;
+    /* margin: auto; */
+    /* width: 40%; */
+    
+}
+
+.footer-link{
+    color: #13405a;
+    /* text-decoration: none; */
+    text-align: center;
+}

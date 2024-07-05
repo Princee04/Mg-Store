@@ -2,12 +2,13 @@ import React from 'react';
 import Header from '../Header/Header';
 import "bootstrap/dist/css/bootstrap.min.css"
 import './sell.css'
+import {Link} from 'react-router-dom'
 
 const Sell = () => {
     return (
         <div>
             <Header/>
-            <div className="container">
+            <div className="container mt-5">
                 <h3 className='text-center text-success'>Formulaire de Vente</h3>
                 <div className="form-container mt-5">
                     <form>
@@ -61,6 +62,12 @@ const Sell = () => {
                         </div>
                     </form>
                 </div>
+                <footer className='sell-footer'>
+                    <Link className='footer-link'  to='' >Politique de Vente</Link>
+                    <Link className='footer-link' to='' >Securité</Link>
+                    <Link className='footer-link' to='' >Vie Privée</Link>
+                    <Link className='footer-link' to='' >Donations</Link>
+                </footer>
             </div>
         </div>
     );
