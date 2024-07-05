@@ -237,3 +237,10 @@ body{
     margin: auto;
     /* width: 10%; */
 }
+
+/* caroussel container */
+
+.caroussel-container{
+    padding: 0 100px;
+    /* border-radius: 5px; */
+}
