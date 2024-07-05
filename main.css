@@ -244,3 +244,8 @@ body{
     padding: 0 100px;
     /* border-radius: 5px; */
 }
+
+#active-filtre {
+    background-color: #13405a;
+    color: white;
+}
