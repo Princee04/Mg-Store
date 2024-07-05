@@ -18,17 +18,27 @@ body{
     display: none;
     position: absolute;
     border: none;
-    border-radius: 4px;
-    top:6rem;
-    right: 5rem;
+    border-radius: 5px;
+    top:5.6rem;
+    right: 4.6rem;
     width: 100px;
-    box-shadow: 0px 0px 0px 1px;
+    /* box-shadow: 0px 0px 0px 1px; */
     transition: all .5s ease-in-out;
+    background-color: whitesmoke;
 
 }
 
+.deux{
+color: red;
+text-decoration: none;
+}
+
+.un{
+    text-decoration: none;
+}
+
 .menu >div{
-    border-bottom: solid .2px grey;
+    border-bottom: solid .2px gray;
     width: 100%;
     text-align: center;
 }

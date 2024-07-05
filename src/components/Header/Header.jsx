@@ -27,8 +27,8 @@ const Header = ({page}) => {
                     <FaShoppingCart className='shoppingCart'  fill='grey'/>
                 </div>
                 <div className="menu">
-                    <div className="un">Profil</div>
-                    <div className="deux">Logout</div>
+                    <div className="un"><Link className='un' to=''>Profil</Link></div>
+                    <div  className="deux"><Link className='deux' to=''>Quitter</Link></div>
                 </div>
             </div>
          
