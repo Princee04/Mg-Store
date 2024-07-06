@@ -1,16 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from "../Header/Header"
 import Caroussel from '../caroussel/Caroussel';
 import ListGroup from 'react-bootstrap/ListGroup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Product from '../product/Product';
 import { FaSearch } from 'react-icons/fa';
+import HashLoader from "react-spinners/HashLoader"
 
+
+const  CSSProperties = {
+    display: "block",
+    margin: "50px auto",
+    borderColor: "red",
+  };
 
 // import images from '../../../public/images.jpeg'
 import "bootstrap/dist/css/bootstrap.min.css"
 
 const Articles = () => {
+    const [isLoading, setIsLoading] = useState(false)
     return (
         <div>
             <Header page='articles'/>
@@ -35,15 +43,35 @@ const Articles = () => {
                     </div>
                     <div className="col-1 "><button className='btn btn-success'><FaSearch/></button></div>
                 </div>
-                <div className="container p-4 d-flex flex-wrap gap-3">
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                </div>
-                <div className="container text-center">
+                {isLoading ? 
+                    (<HashLoader
+                    color={'#38ab4d'}
+                    loading={isLoading}
+                    cssOverride={CSSProperties}
+                    size={150}
+                    aria-label="Loading Spinner"
+                    data-testid="loader"
+                />)
+                :
+                (
+                     <div className="container p-4 d-flex flex-wrap gap-3">
+                
+                <Product />     
+                <Product />
+                <Product />
+                <Product />     </div>          
+                )}
+               
+    
+                  
+                {
+                    isLoading?'':(
+                    <div className="container text-center">
                     <button className='btn btn-success'>Plus</button>
-                </div>
+                    </div>
+                    )
+                }
+            
             </div>
         </div>
     );
