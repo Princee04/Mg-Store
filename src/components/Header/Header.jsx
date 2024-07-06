@@ -1,6 +1,7 @@
 import xxx from '/xxx.png'
 import { FaShoppingCart } from 'react-icons/fa';
 import {Link}  from 'react-router-dom';
+// import './header.css'
 // import "bootstrap/dist/css/bootstrap.min.css"
 
 

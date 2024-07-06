@@ -10,6 +10,7 @@ import Home from "./components/home/Home"
 import Sell from "./components/Sell/Sell";
 import Card from "./components/card/Card";
 import { Route, Routes } from "react-router-dom"
+import AdminDashboard from "./admin/AdminDashboard";
 function App() {
   return (
    <>
@@ -18,6 +19,7 @@ function App() {
               <Route path="/SignIn" element={<SignIn/>} />
               <Route path="/signup" element={<SignUp/>} />
               <Route path="/panier" element={<Card/>} />
+              <Route path="/admin" element={<AdminDashboard/>} />
               <Route path="/" element={<Home/>}/>
               <Route path="/articles" element= {<Articles/>} />
               <Route path="/vendres" element= {<Sell/>} />
