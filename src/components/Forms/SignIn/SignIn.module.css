@@ -5,6 +5,15 @@
   --text-color: #13405a;
 }
 
+#cont{
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .signIn {
   display: flex;
   justify-content: space-between;

@@ -1,5 +1,5 @@
 import React from "react";
-import { signIn, left, right, link, typeText } from "./SignIn.module.css";
+import { signIn, left, right, link, typeText, cont } from "./SignIn.module.css";
 import Title from "../../Title/Title";
 import SignInForm from "./SignInForm/SignInForm";
 import SocialNetworks from "../../SocialNetworks/SocialNetworks";
@@ -8,7 +8,8 @@ import { ReactTyped } from "react-typed";
 
 const SignIn = () => {
   return (
-    <div className={`${signIn} rounded-4 shadow`}>
+    <div id={cont}> 
+        <div className={`${signIn} rounded-4 shadow`}>
       <div className={`${left} px-4 py-5`}>
         <Title size={"6"} text={"Connexion"} />
         <SocialNetworks />
@@ -37,6 +38,8 @@ const SignIn = () => {
         </Link>
       </div>
     </div>
+    </div>
+    
   );
 };
 
