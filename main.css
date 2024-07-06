@@ -265,7 +265,7 @@ text-decoration: none;
 }
 
 #active {
-    background-color: #38ab4d; 
+    border-bottom: solid #38ab4d; 
     border-radius: 4px;
     color: white;
     transition: background 1s;
