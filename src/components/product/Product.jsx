@@ -1,9 +1,12 @@
 import React from 'react';
 import './product.css'
+import "bootstrap/dist/css/bootstrap.min.css"
+
+
 import img from '../../images/image2.jpeg'
 const Product = () => {
     return (
-        <div className='product-container'>
+        <div className='product-container shadow'>
             <div className="product-image">
                 <img src={img} alt="" />
             </div>
