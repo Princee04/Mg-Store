@@ -23,12 +23,12 @@ const Header = ({page}) => {
             </div>
             <div className="profil-parameters">
                     
-                <div className="profil-container">
-                    <img src={xxx} alt="" />
-                </div>   
                 <div className="shop">
                    <Link to='/panier'><FaShoppingCart className='shoppingCart'  fill={page=='panier'?'green':'grey'}/></Link> 
                 </div>
+                <div className="profil-container">
+                    <img src={xxx} alt="" />
+                </div>   
                 <div className="menu">
                     <div className="un"><Link className='un' to=''>Profil</Link></div>
                     <div  className="deux"><Link className='deux' to=''>Quitter</Link></div>
