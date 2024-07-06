@@ -4,9 +4,15 @@ import "bootstrap/dist/css/bootstrap.min.css"
 
 
 import img from '../../images/image2.jpeg'
+import { useNavigate } from 'react-router-dom';
 const Product = () => {
+    const navigate = useNavigate()
+    const click = (id) => {
+        navigate('/articles/'+id)
+    }
+
     return (
-        <div className='product-container shadow'>
+        <div onClick={click} className='product-container shadow'>
             <div className="product-image">
                 <img src={img} alt="" />
             </div>
