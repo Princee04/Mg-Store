@@ -4,7 +4,7 @@ import Caroussel from '../caroussel/Caroussel';
 import ListGroup from 'react-bootstrap/ListGroup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Product from '../product/Product';
-
+import { FaSearch } from 'react-icons/fa';
 
 
 // import images from '../../../public/images.jpeg'
@@ -21,11 +21,7 @@ const Articles = () => {
             <div className="container mt-4">
                 <h3 className='text-center text-success mb-3'>Listes Des Articles</h3>
                 <div className="row">
-                    <div className="col-1 mx-2"><button className='btn btn-success'>Rechercher</button></div>
-                    <div className="col-4">
-                     <input type="text" className="form-control" placeholder='trouver un article specifique ici...' />
-                    </div>
-                    <div className="col-6">
+                    <div className="col-5">
                             <ListGroup horizontal>
                       
                             <ListGroup.Item id='active-filtre'>Tout</ListGroup.Item>
@@ -34,6 +30,10 @@ const Articles = () => {
                             <ListGroup.Item>Informatiques</ListGroup.Item>
                             </ListGroup>
                     </div>
+                    <div className="col-6">
+                     <input type="text" className="form-control" placeholder='trouver un article specifique ici...' />
+                    </div>
+                    <div className="col-1 "><button className='btn btn-success'><FaSearch/></button></div>
                 </div>
                 <div className="container p-4 d-flex flex-wrap gap-3">
                     <Product />
