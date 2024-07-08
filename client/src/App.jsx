@@ -70,8 +70,14 @@ function App() {
             element={<Home currentUser={currentUser} users={users} />}
           />
         )}
-        <Route path="/articles" element={<Articles />} />
-        <Route path="/vendres" element={<Sell />} />
+        <Route
+          path="/articles"
+          element={<Articles currentUser={currentUser} users={users} />}
+        />
+        <Route
+          path="/vendres"
+          element={<Sell currentUser={currentUser} users={users} />}
+        />
       </Routes>
       <Notification />
     </>
