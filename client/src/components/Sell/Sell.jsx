@@ -4,10 +4,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./sell.css";
 import { Link } from "react-router-dom";
 
-const Sell = ({ currentUser }) => {
+const Sell = ({ currentUser, signOut }) => {
   return (
     <div>
-      <Header page="vendres" currentUser={currentUser} />
+      <Header page="vendres" currentUser={currentUser} signOut={signOut} />
       <div className="container mt-5">
         <h3 className="text-center text-success">Formulaire de Vente</h3>
         <div className="form-container mt-5">

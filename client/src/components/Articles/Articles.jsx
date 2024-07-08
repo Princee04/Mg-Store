@@ -16,11 +16,11 @@ const CSSProperties = {
 // import images from '../../../public/images.jpeg'
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const Articles = ({ currentUser }) => {
+const Articles = ({ currentUser, signOut }) => {
   const [isLoading, setIsLoading] = useState(false);
   return (
     <div>
-      <Header page="articles" currentUser={currentUser} />
+      <Header page="articles" currentUser={currentUser} signOut={signOut} />
       <div className="caroussel-container">
         <Caroussel />
       </div>
