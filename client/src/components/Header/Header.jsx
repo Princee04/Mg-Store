@@ -3,7 +3,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import React from "react";
 
-const Header = ({ page, currentUser }) => {
+const Header = ({ page, currentUser, signOut }) => {
   return (
     <div className="header-container">
       <div className="logo">
@@ -59,8 +59,12 @@ const Header = ({ page, currentUser }) => {
             </Link>
           </div>
           <div className="deux">
-            <Link className="deux" to="">
-              Quitter
+            <Link
+              className="deux"
+              to=""
+              onClick={() => signOut(currentUser.ID)}
+            >
+              Déconnexion
             </Link>
           </div>
         </div>

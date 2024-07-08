@@ -11,6 +11,7 @@ import SignIn from "./components/Auth/SignIn/SignIn";
 import SignUp from "./components/Auth/SignUp/SignUp";
 import { useState } from "react";
 import Notification from "./components/Notification/Notification";
+import PopUp from "./components/PopUp/PopUp";
 
 function App() {
   const [users, setUsers] = useState([
@@ -25,6 +26,8 @@ function App() {
   ]);
 
   const [currentUser, setCurrentUser] = useState({});
+
+  const [isSignOut, setIsSignOut] = useState(false);
 
   const handleSignUp = (newUser) => {
     setUsers((oldUsers) => [...oldUsers, newUser]);
@@ -48,8 +51,38 @@ function App() {
     setCurrentUser(user);
   };
 
+  const confirmSignOut = (user) => {
+    setUsers((oldUsers) => {
+      user.isLoggedIn = false;
+      const userIndex = users.findIndex(
+        (user) => user.email === currentUser.email
+      );
+      oldUsers[userIndex] = user;
+      return [...oldUsers];
+    });
+    setCurrentUser(user);
+    setIsSignOut(false);
+    navigate("/");
+  };
+
+  const deniedSignOut = () => {
+    setIsSignOut(false);
+  };
+
+  const handleSignOut = (ID) => {
+    setIsSignOut(true);
+  };
+
   return (
     <>
+      {isSignOut && (
+        <PopUp
+          title={"Déconnexion ?"}
+          message={"Souhaiter-vous vraiment vous déconnecter ?"}
+          confirm={() => confirmSignOut(currentUser)}
+          denied={deniedSignOut}
+        />
+      )}
       <Routes>
         <Route
           path="/"
@@ -67,16 +100,34 @@ function App() {
         {currentUser.isLoggedIn && (
           <Route
             path="/home"
-            element={<Home currentUser={currentUser} users={users} />}
+            element={
+              <Home
+                currentUser={currentUser}
+                users={users}
+                signOut={handleSignOut}
+              />
+            }
           />
         )}
         <Route
           path="/articles"
-          element={<Articles currentUser={currentUser} users={users} />}
+          element={
+            <Articles
+              currentUser={currentUser}
+              users={users}
+              signOut={handleSignOut}
+            />
+          }
         />
         <Route
           path="/vendres"
-          element={<Sell currentUser={currentUser} users={users} />}
+          element={
+            <Sell
+              currentUser={currentUser}
+              users={users}
+              signOut={handleSignOut}
+            />
+          }
         />
       </Routes>
       <Notification />
