@@ -1,10 +1,9 @@
 import xxx from "/xxx.png";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
-// import './header.css'
-// import "bootstrap/dist/css/bootstrap.min.css"
+import React from "react";
 
-const Header = ({ page }) => {
+const Header = ({ page, currentUser }) => {
   return (
     <div className="header-container">
       <div className="logo">
@@ -51,7 +50,7 @@ const Header = ({ page }) => {
           </Link>
         </div>
         <div className="profil-container">
-          <img src={xxx} alt="" />
+          <img src={`../../../uploads/${currentUser.avatar}`} alt="" />
         </div>
         <div className="menu">
           <div className="un">

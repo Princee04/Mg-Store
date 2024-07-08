@@ -64,7 +64,12 @@ function App() {
         />
         <Route path="/panier" element={<Card />} />
         <Route path="/admin" element={<AdminDashboard />} />
-        {currentUser.isLoggedIn && <Route path="/home" element={<Home />} />}
+        {currentUser.isLoggedIn && (
+          <Route
+            path="/home"
+            element={<Home currentUser={currentUser} users={users} />}
+          />
+        )}
         <Route path="/articles" element={<Articles />} />
         <Route path="/vendres" element={<Sell />} />
       </Routes>

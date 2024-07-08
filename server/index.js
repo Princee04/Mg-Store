@@ -6,7 +6,7 @@ const app = express();
 app.use(json());
 
 const storage = diskStorage({
-  destination: (req, file, cb) => cb(null, "../client/src/assets/uploads"),
+  destination: (req, file, cb) => cb(null, "../client/public/uploads/"),
   filename: (req, file, cb) => cb(null, `${file.originalname}`),
 });
 
