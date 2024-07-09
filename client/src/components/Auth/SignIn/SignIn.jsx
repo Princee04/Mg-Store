@@ -163,6 +163,8 @@ const SignIn = ({ signIn, users, forgotPassword }) => {
         <div className="right p-4">
           <h2 className="fw-bold">MG-Store</h2>
 
+          <img src="../../../../ispm.jpeg" className="ispm" />
+
           <div className="typedText my-3">
             <ReactTyped
               className={`text-center`}

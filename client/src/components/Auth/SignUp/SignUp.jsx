@@ -93,6 +93,8 @@ const SignUp = ({ signUp, users }) => {
         <div className="left p-4">
           <h2 className="fw-bold">MG-Store</h2>
 
+          <img src="../../../../ispm.jpeg" className="ispm" />
+
           <div className="typedText my-3">
             <ReactTyped
               className={`text-center`}
