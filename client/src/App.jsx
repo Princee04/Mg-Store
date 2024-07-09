@@ -12,6 +12,8 @@ import SignUp from "./components/Auth/SignUp/SignUp";
 import { useState } from "react";
 import Notification from "./components/Notification/Notification";
 import PopUp from "./components/PopUp/PopUp";
+import { getCurrentUser } from "./helpers/helpers";
+import { toast } from "react-toastify";
 
 function App() {
   const [users, setUsers] = useState([
@@ -27,7 +29,12 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState({});
 
+  const [forgotID, setForgotID] = useState();
+  const [code, setCode] = useState();
+
   const [isSignOut, setIsSignOut] = useState(false);
+  const [isForgotPassword, setIsForgotPassword] = useState(false);
+  const [newPassword, setNewPassword] = useState();
 
   const handleSignUp = (newUser) => {
     setUsers((oldUsers) => [...oldUsers, newUser]);
@@ -73,27 +80,97 @@ function App() {
     setIsSignOut(true);
   };
 
+  const handleForgotPassword = (ID) => {
+    setIsForgotPassword(true);
+    setForgotID(ID);
+  };
+
+  const confirmChangePassword = (code, newPassword) => {
+    try {
+      if (forgotID === Number(code)) {
+        const newUsers = [...users];
+        const user = newUsers.find((user) => user.ID === Number(code));
+        const userIndex = newUsers.findIndex(
+          (user) => user.ID === Number(code)
+        );
+        user.password = newPassword;
+        newUsers[userIndex] = user;
+        console.log(newUsers);
+
+        setUsers(newUsers);
+        setIsForgotPassword(false);
+        setForgotID("");
+        setCode("");
+        setNewPassword("");
+      } else throw new Error("Code invalide");
+    } catch (error) {
+      toast.warning(error.message);
+    }
+  };
+
+  const deniedChangePassword = () => {
+    setIsForgotPassword(false);
+  };
+
   return (
     <>
       {isSignOut && (
         <PopUp
           title={"Déconnexion ?"}
-          message={"Souhaiter-vous vraiment vous déconnecter ?"}
           confirm={() => confirmSignOut(currentUser)}
           denied={deniedSignOut}
-        />
+        >
+          Souhaiter-vous vraiment vous déconnecter ?
+        </PopUp>
+      )}
+
+      {isForgotPassword && (
+        <PopUp
+          title={"Mot de passe oublier ?"}
+          confirm={() => confirmChangePassword(code, newPassword)}
+          denied={deniedChangePassword}
+        >
+          <label className="my-3 text-center" htmlFor="code">
+            Entrer ce dode puis votre nouveau mot(s) de passe
+          </label>
+          <div className="text-success mb-3">{forgotID}</div>
+          <div>
+            <input
+              type="number"
+              className="form-control mb-3"
+              placeholder="Code"
+              onChange={(e) => setCode(e.target.value)}
+            />
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Nouveau mot(s) de passe"
+              onChange={(e) => setNewPassword(e.target.value)}
+            />
+          </div>
+        </PopUp>
       )}
       <Routes>
         <Route
           path="/"
           element={
-            <SignIn signIn={handleSignIn} users={users} setUsers={setUsers} />
+            <SignIn
+              signIn={handleSignIn}
+              users={users}
+              forgotPassword={handleForgotPassword}
+            />
           }
         />
 
         <Route
           path="/signup"
-          element={<SignUp signUp={handleSignUp} users={users} />}
+          element={
+            <SignUp
+              signUp={handleSignUp}
+              users={users}
+              forgotPassword={handleForgotPassword}
+            />
+          }
         />
         <Route path="/panier" element={<Card />} />
         <Route path="/admin" element={<AdminDashboard />} />

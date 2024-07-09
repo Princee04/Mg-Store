@@ -40,6 +40,10 @@ const isEmailAndPasswordMatching = (users, auth) =>
     (user) => user.email == auth.email && user.password === auth.password
   );
 
+// Récupération du currentUser
+const getCurrentUser = (users, email) =>
+  users.find((user) => user.email === email);
+
 export {
   showHidePassword,
   getParticularID,
@@ -47,4 +51,5 @@ export {
   isEmailAlreadyUsed,
   isEmailhMatching,
   isEmailAndPasswordMatching,
+  getCurrentUser,
 };

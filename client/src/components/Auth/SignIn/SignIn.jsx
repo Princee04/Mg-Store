@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 import "./SignIn.css";
 import "../Auth.css";
@@ -13,18 +13,20 @@ import { ReactTyped } from "react-typed";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import {
+  getCurrentUser,
   isEmailAndPasswordMatching,
   isEmailhMatching,
   showHidePassword,
 } from "../../../helpers/helpers";
 import { toast } from "react-toastify";
 
-const SignIn = ({ signIn, users }) => {
+const SignIn = ({ signIn, users, forgotPassword }) => {
   const eyeRef = useRef(),
     eyeSlashRef = useRef(),
     formRef = useRef();
 
   const navigate = useNavigate();
+  const [email, setEmail] = useState();
 
   const {
     register,
@@ -70,6 +72,7 @@ const SignIn = ({ signIn, users }) => {
                     required: "Adrèsse mail requis!",
                     minLength: { value: 16, message: "Minumum 16 caractères" },
                   })}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               {errors.email && (
@@ -123,7 +126,15 @@ const SignIn = ({ signIn, users }) => {
               )}
             </div>
 
-            <div className="forgotPassword mb-3">Mot de passe oublier?</div>
+            <div
+              className="forgotPassword mb-3"
+              onClick={() => {
+                const ID = getCurrentUser(users, email).ID;
+                forgotPassword(ID);
+              }}
+            >
+              Mot de passe oublier?
+            </div>
 
             <div className={`helpLink d-none mb-3`}>
               Pas encore de compte? <Link to={"/signup"}>S'inscrire</Link>

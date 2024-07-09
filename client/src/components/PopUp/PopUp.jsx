@@ -1,4 +1,4 @@
-const PopUp = ({ title, message, confirm, denied }) => {
+const PopUp = ({ title, children, confirm, denied }) => {
   return (
     <>
       <div className="modal modal-sheet position-absolute d-block p-4 mt-5">
@@ -6,7 +6,7 @@ const PopUp = ({ title, message, confirm, denied }) => {
           <div className="modal-content rounded-3 shadow">
             <div className="modal-body text-center">
               <h5 className="mb-0">{title}</h5>
-              <p className="mb-0">{message}</p>
+              <div className="mb-0">{children}</div>
             </div>
             <div className="modal-footer flex-nowrap p-0">
               <button
