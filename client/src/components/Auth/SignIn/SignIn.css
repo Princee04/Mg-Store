@@ -44,6 +44,10 @@
   color: var(--white);
 }
 
+.forgotPassword {
+  cursor: pointer;
+}
+
 @media (max-width: 650px) {
   .SignIn .right {
     display: none !important;
