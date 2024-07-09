@@ -87,22 +87,27 @@ function App() {
 
   const confirmChangePassword = (code, newPassword) => {
     try {
-      if (forgotID === Number(code)) {
-        const newUsers = [...users];
-        const user = newUsers.find((user) => user.ID === Number(code));
-        const userIndex = newUsers.findIndex(
-          (user) => user.ID === Number(code)
-        );
-        user.password = newPassword;
-        newUsers[userIndex] = user;
-        console.log(newUsers);
+      if (true) {
+        if (forgotID === Number(code)) {
+          const newUsers = [...users];
+          const user = newUsers.find((user) => user.ID === Number(code));
+          const userIndex = newUsers.findIndex(
+            (user) => user.ID === Number(code)
+          );
+          user.password = newPassword;
+          newUsers[userIndex] = user;
+          console.log(newUsers);
 
-        setUsers(newUsers);
-        setIsForgotPassword(false);
-        setForgotID("");
-        setCode("");
-        setNewPassword("");
-      } else throw new Error("Code invalide");
+          setUsers(newUsers);
+          setIsForgotPassword(false);
+          setForgotID("");
+          setCode("");
+          setNewPassword("");
+        } else throw new Error("Code invalide");
+      } else
+        throw new Error(
+          "Vous n'êtes pas encre inscrit, veuillez vous inscrire !"
+        );
     } catch (error) {
       toast.warning(error.message);
     }

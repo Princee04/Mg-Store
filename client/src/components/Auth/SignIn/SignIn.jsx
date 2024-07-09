@@ -128,12 +128,18 @@ const SignIn = ({ signIn, users, forgotPassword }) => {
 
             <div
               className="forgotPassword mb-3"
-              onClick={(e) => {
+              onClick={() => {
                 try {
-                  if (email) {
-                    const ID = getCurrentUser(users, email).ID;
-                    forgotPassword(ID);
-                  } else throw new Error("Veuillez entrez une adrèsse mail !");
+                  if (getCurrentUser(users, email)) {
+                    if (email) {
+                      const ID = getCurrentUser(users, email).ID;
+                      forgotPassword(ID);
+                    } else
+                      throw new Error("Veuillez entrez une adrèsse mail !");
+                  } else
+                    throw new Error(
+                      "Adrèsse mail introuvable, veuillez vous inscrire !"
+                    );
                 } catch (error) {
                   toast.warning(error.message);
                 }
