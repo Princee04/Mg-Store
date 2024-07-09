@@ -128,9 +128,15 @@ const SignIn = ({ signIn, users, forgotPassword }) => {
 
             <div
               className="forgotPassword mb-3"
-              onClick={() => {
-                const ID = getCurrentUser(users, email).ID;
-                forgotPassword(ID);
+              onClick={(e) => {
+                try {
+                  if (email) {
+                    const ID = getCurrentUser(users, email).ID;
+                    forgotPassword(ID);
+                  } else throw new Error("Veuillez entrez une adrèsse mail !");
+                } catch (error) {
+                  toast.warning(error.message);
+                }
               }}
             >
               Mot de passe oublier?
