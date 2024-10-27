@@ -1,32 +1,23 @@
-const PopUp = ({ title, children, confirm, denied }) => {
+import React from "react"
+import "./PopUp.css"
+
+const PopUp = ({ title, confirm, denied, children }) => {
   return (
-    <>
-      <div className="modal modal-sheet position-absolute d-block p-4 mt-5">
-        <div className="modal-dialog">
-          <div className="modal-content rounded-3 shadow">
-            <div className="modal-body text-center">
-              <h5 className="mb-0">{title}</h5>
-              <div className="mb-0">{children}</div>
-            </div>
-            <div className="modal-footer flex-nowrap p-0">
-              <button
-                className="btn btn-link text-decoration-none col-6 py-3 m-0 rounded-0 border-end"
-                onClick={confirm}
-              >
-                Oui
-              </button>
-              <button
-                className="btn btn-link text-decoration-none col-6 py-3 m-0 rounded-0"
-                onClick={denied}
-              >
-                <strong>Non</strong>
-              </button>
-            </div>
-          </div>
+    <div className="popup-overlay">
+      <div className="popup-content">
+        <h4 className="popup-title">{title}</h4>
+        <p className="popup-message">{children}</p>
+        <div className="popup-buttons">
+          <button className="popup-confirm" onClick={confirm}>
+            Oui
+          </button>
+          <button className="popup-deny" onClick={denied}>
+            Non
+          </button>
         </div>
       </div>
-    </>
-  );
-};
+    </div>
+  )
+}
 
-export default PopUp;
+export default PopUp

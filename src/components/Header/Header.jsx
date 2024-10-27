@@ -2,9 +2,30 @@ import xxx from "/xxx.png"
 import { FaShoppingCart } from "react-icons/fa"
 import { Link } from "react-router-dom"
 import { useUserContext } from "../../contexts/UserContext/UserContext"
+import { useState } from "react"
+import { logout } from "../../firebase/firebaseConfig"
+import PopUp from "../PopUp/PopUp"
 
 const Header = () => {
   const { currentUser } = useUserContext()
+  const [showLogoutPopUp, setShowLogoutPopUp] = useState(false)
+
+  // Fonction pour afficher le pop-up de confirmation
+  const handleLogoutClick = () => {
+    setShowLogoutPopUp(true)
+  }
+
+  // Fonction pour confirmer la déconnexion
+  const confirmLogout = async () => {
+    await logout()
+    setShowLogoutPopUp(false)
+    // Redirection ou autres actions après la déconnexion, si nécessaire
+  }
+
+  // Fonction pour annuler la déconnexion
+  const denyLogout = () => {
+    setShowLogoutPopUp(false)
+  }
 
   return (
     <>
@@ -78,7 +99,10 @@ const Header = () => {
                     </Link>
                   </li>
                   <li>
-                    <button className="dropdown-item" to="">
+                    <button
+                      className="dropdown-item"
+                      onClick={handleLogoutClick} // Appelle le pop-up de confirmation
+                    >
                       Déconnexion
                     </button>
                   </li>
@@ -88,6 +112,17 @@ const Header = () => {
           </div>
         </div>
       </nav>
+
+      {/* Pop-up de confirmation de déconnexion */}
+      {showLogoutPopUp && (
+        <PopUp
+          title="Confirmer la déconnexion"
+          confirm={confirmLogout}
+          denied={denyLogout}
+        >
+          Es-tu sûr de vouloir te déconnecter ?
+        </PopUp>
+      )}
     </>
   )
 }
