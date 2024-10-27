@@ -4,9 +4,8 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
-  onAuthStateChanged,
   sendPasswordResetEmail,
-} from "firebase/auth" // Pas besoin de getFirestore ici
+} from "firebase/auth"
 import {
   getFirestore,
   collection,
@@ -14,7 +13,7 @@ import {
   setDoc,
   doc,
   getDoc,
-} from "firebase/firestore" // Assurez-vous que getFirestore est importé ici
+} from "firebase/firestore"
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage"
 
 // Configuration Firebase
@@ -70,7 +69,6 @@ export const logout = async () => {
   await signOut(auth)
 }
 
-// Fonction pour récupérer tous les utilisateurs
 // Fonction pour récupérer tous les utilisateurs
 export const getAllUsers = async () => {
   const usersCollection = collection(db, "users")
