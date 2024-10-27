@@ -6,3 +6,9 @@
   align-items: center;
   height: 100vh;
 } */
+
+.sell-footer {
+  background-color: #f8f9fa; /* ou toute autre couleur de ton choix */
+  padding: 20px;
+  text-align: center;
+}

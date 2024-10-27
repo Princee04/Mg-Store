@@ -1,76 +1,95 @@
-import xxx from "/xxx.png";
-import { FaShoppingCart } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import React from "react";
+import xxx from "/xxx.png"
+import { FaShoppingCart } from "react-icons/fa"
+import { Link } from "react-router-dom"
+import { useUserContext } from "../../contexts/UserContext/UserContext"
 
-const Header = ({ page, currentUser, signOut }) => {
+const Header = () => {
+  const { currentUser } = useUserContext()
+
   return (
-    <div className="header-container">
-      <div className="logo">
-        <img className="logo-img" width={100} height={100} src={xxx} alt="" />
-        <h3 className="logo-title"> MG-Store </h3>
-      </div>
-      <div className="link">
-        <Link
-          id={page == "home" ? "active" : ""}
-          style={{ textDecoration: "none", color: "#13405a" }}
-          to="/home"
-        >
-          Acceuil
-        </Link>
-        <Link
-          id={page == "articles" ? "active" : ""}
-          style={{ textDecoration: "none", color: "#13405a" }}
-          to="/articles"
-        >
-          Articles
-        </Link>
-        <Link
-          id={page == "vendres" ? "active" : ""}
-          style={{ textDecoration: "none", color: "#13405a" }}
-          to="/vendres"
-        >
-          Ventes
-        </Link>
-        <Link
-          id={page == "blog" ? "active" : ""}
-          style={{ textDecoration: "none", color: "#13405a" }}
-          to=""
-        >
-          Blog
-        </Link>
-      </div>
-      <div className="profil-parameters">
-        <div className="shop">
-          <Link to="/panier">
-            <FaShoppingCart
-              className="shoppingCart"
-              fill={page == "panier" ? "green" : "grey"}
+    <>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container-fluid">
+          <Link className="navbar-brand d-flex align-items-center" to="/home">
+            <img
+              className="logo-img"
+              width={100}
+              height={100}
+              src={xxx}
+              alt="Logo"
             />
+            <h3 className="ms-2">MG-Store</h3>
           </Link>
-        </div>
-        <div className="profil-container">
-          <img src={`../../../uploads/${currentUser.avatar}`} alt="" />
-        </div>
-        <div className="menu">
-          <div className="un">
-            <Link className="un" to="">
-              Profil
-            </Link>
-          </div>
-          <div className="deux">
-            <Link
-              className="deux"
-              to=""
-              onClick={() => signOut(currentUser.ID)}
-            >
-              Déconnexion
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
 
-export default Header;
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <Link className="nav-link" to="/home">
+                  Accueil
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/articles">
+                  Articles
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/sells">
+                  Ventes
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="">
+                  Blog
+                </Link>
+              </li>
+            </ul>
+
+            <div className="d-flex align-items-center">
+              <Link className="me-3" to="/panier">
+                <FaShoppingCart className="shoppingCart" />
+              </Link>
+              <div className="dropdown">
+                <img
+                  src={currentUser.profileURL}
+                  alt="Profil"
+                  className="rounded-circle"
+                  width={40}
+                  height={40}
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                />
+                <ul className="dropdown-menu dropdown-menu-end">
+                  <li>
+                    <Link className="dropdown-item" to="">
+                      Profil
+                    </Link>
+                  </li>
+                  <li>
+                    <button className="dropdown-item" to="">
+                      Déconnexion
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </>
+  )
+}
+
+export default Header
