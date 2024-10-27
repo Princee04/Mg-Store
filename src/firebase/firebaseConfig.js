@@ -13,6 +13,7 @@ import {
   getDocs,
   setDoc,
   doc,
+  getDoc,
 } from "firebase/firestore" // Assurez-vous que getFirestore est importé ici
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage"
 
@@ -48,7 +49,7 @@ export const createUser = async (email, password, userData, file) => {
   // Upload de l'image et obtention de l'URL
   let profileURL = ""
   if (file) {
-    profileURL = await uploadImage(file)
+    profileURL = await uploadImage(file, "profileImages") // Spécifie le dossier "profileImages"
   }
 
   // Ajoute l'utilisateur à Firestore avec l'URL de l'image
@@ -60,6 +61,7 @@ export const createUser = async (email, password, userData, file) => {
     profileURL,
   })
 
+  console.log("Utilisateur créé :", { ...userData, uid: user.uid, profileURL })
   return user
 }
 
@@ -81,10 +83,10 @@ export const getAllUsers = async () => {
 }
 
 // Fonction pour uploader une image dans Firebase Storage
-export const uploadImage = async (file) => {
+export const uploadImage = async (file, folderName) => {
   if (!file) return null // Vérifie si le fichier est présent
 
-  const storageRef = ref(storage, `profileImages/${file.name}`)
+  const storageRef = ref(storage, `${folderName}/${file.name}`) // Utilise le nom du dossier fourni
   await uploadBytes(storageRef, file)
 
   // Récupère l'URL de téléchargement
@@ -97,10 +99,6 @@ export const resetPassword = async (email) => {
   await sendPasswordResetEmail(auth, email)
 }
 
-import { getDoc } from "firebase/firestore" // Assurez-vous d'importer cette fonction
-
-// ...autres imports et initialisation
-
 // Fonction pour récupérer les données de l'utilisateur par UID
 export const getUserProfile = async (uid) => {
   const userDoc = doc(db, "users", uid)
@@ -110,6 +108,28 @@ export const getUserProfile = async (uid) => {
     return userSnapshot.data() // Retourne les données de l'utilisateur
   } else {
     throw new Error("Aucun utilisateur trouvé !")
+  }
+}
+
+// Fonction pour ajouter un produit
+export const addProduct = async (uid, productData, file) => {
+  try {
+    // Upload de l'image et obtention de l'URL
+    const productImageURL = await uploadImage(file, "products")
+
+    // Crée une nouvelle référence pour le produit
+    const productRef = doc(collection(db, "products"))
+
+    // Ajoute le produit à Firestore avec l'URL de l'image
+    await setDoc(productRef, {
+      ...productData,
+      productImageURL, // Enregistre l'URL de l'image
+      uid, // Utilise le uid passé en paramètre
+    })
+
+    console.log("Produit ajouté avec succès:", productData)
+  } catch (error) {
+    console.error("Erreur lors de l'ajout du produit:", error)
   }
 }
 
