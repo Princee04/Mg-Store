@@ -1,14 +1,17 @@
 import xxx from "/xxx.png"
 import { FaShoppingCart } from "react-icons/fa"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { useUserContext } from "../../contexts/UserContext/UserContext"
 import { useState } from "react"
 import { logout } from "../../firebase/firebaseConfig"
 import PopUp from "../PopUp/PopUp"
 
+import "./Header.css"
+
 const Header = () => {
   const { currentUser } = useUserContext()
   const [showLogoutPopUp, setShowLogoutPopUp] = useState(false)
+  const location = useLocation() // pour déterminer le lien actif
 
   // Fonction pour afficher le pop-up de confirmation
   const handleLogoutClick = () => {
@@ -29,19 +32,23 @@ const Header = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm py-1">
+        {" "}
+        {/* Réduit le padding ici */}
         <div className="container-fluid">
+          {/* Logo et titre du site */}
           <Link className="navbar-brand d-flex align-items-center" to="/home">
             <img
               className="logo-img"
-              width={100}
-              height={100}
+              width={80}
+              height={80}
               src={xxx}
               alt="Logo"
             />
             <h3 className="ms-2">MG-Store</h3>
           </Link>
 
+          {/* Bouton de navigation pour les petits écrans */}
           <button
             className="navbar-toggler"
             type="button"
@@ -54,30 +61,60 @@ const Header = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
 
+          {/* Liens de navigation */}
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link className="nav-link" to="/home">
+              <li className="nav-item me-3">
+                {" "}
+                {/* Augmentation de l'espace entre les liens */}
+                <Link
+                  className={`nav-link ${
+                    location.pathname === "/home" ? "active-link" : ""
+                  }`}
+                  to="/home"
+                >
                   Accueil
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/articles">
+              <li className="nav-item me-3">
+                {" "}
+                {/* Augmentation de l'espace entre les liens */}
+                <Link
+                  className={`nav-link ${
+                    location.pathname === "/articles" ? "active-link" : ""
+                  }`}
+                  to="/articles"
+                >
                   Articles
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/sells">
+              <li className="nav-item me-3">
+                {" "}
+                {/* Augmentation de l'espace entre les liens */}
+                <Link
+                  className={`nav-link ${
+                    location.pathname === "/sells" ? "active-link" : ""
+                  }`}
+                  to="/sells"
+                >
                   Ventes
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="">
+              <li className="nav-item me-3">
+                {" "}
+                {/* Augmentation de l'espace entre les liens */}
+                <Link
+                  className={`nav-link ${
+                    location.pathname === "/blog" ? "active-link" : ""
+                  }`}
+                  to="/blog"
+                >
                   Blog
                 </Link>
               </li>
             </ul>
 
+            {/* Icône de panier et profil utilisateur */}
             <div className="d-flex align-items-center">
               <Link className="me-3" to="/panier">
                 <FaShoppingCart className="shoppingCart" />
@@ -86,13 +123,13 @@ const Header = () => {
                 <img
                   src={currentUser.profileURL}
                   alt="Profil"
-                  className="rounded-circle"
+                  className="rounded-circle border border-secondary"
                   width={40}
                   height={40}
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 />
-                <ul className="dropdown-menu dropdown-menu-end">
+                <ul className="dropdown-menu dropdown-menu-end shadow">
                   <li>
                     <Link className="dropdown-item" to="">
                       Profil
@@ -100,8 +137,8 @@ const Header = () => {
                   </li>
                   <li>
                     <button
-                      className="dropdown-item"
-                      onClick={handleLogoutClick} // Appelle le pop-up de confirmation
+                      className="dropdown-item text-danger"
+                      onClick={handleLogoutClick}
                     >
                       Déconnexion
                     </button>

@@ -1,0 +1,8 @@
+.nav-link {
+  transition: border-bottom 0.3s; /* Ajoute une transition douce */
+}
+
+.nav-link:hover,
+.active-link {
+  border-bottom: 2px solid #198754; /* Bordure inférieure en vert (text-success) */
+}
