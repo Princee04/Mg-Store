@@ -8,6 +8,7 @@ import {
   FileImageFill,
   KeyFill,
   PersonFill,
+  TelephoneFill, // Nouvelle icône pour le téléphone
 } from "react-bootstrap-icons"
 import { ReactTyped } from "react-typed"
 import { Link, useNavigate } from "react-router-dom"
@@ -21,7 +22,7 @@ const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState("")
   const navigate = useNavigate()
-  const { fetchUsers } = useUserContext() // Ajout pour mettre à jour la liste des utilisateurs
+  const { fetchUsers } = useUserContext()
 
   const {
     register,
@@ -33,13 +34,13 @@ const SignUp = () => {
   })
 
   const onSubmit = async (data) => {
-    const { pseudo, email, password, file } = data
+    const { pseudo, email, password, phone, file } = data
     setError("")
     setLoading(true)
 
     try {
-      await createUser(email, password, { pseudo }, file[0])
-      fetchUsers() // Mettre à jour la liste des utilisateurs
+      await createUser(email, password, { pseudo, phone }, file[0])
+      fetchUsers()
       navigate("/")
       toast.success(
         "Inscription réussie, vous pouvez maintenant vous connecter !"
@@ -115,6 +116,30 @@ const SignUp = () => {
               </div>
               {errors.pseudo && (
                 <p className="text-danger">{errors.pseudo.message}</p>
+              )}
+            </div>
+            <div className="form-group mb-3">
+              <div className="input-group">
+                <span className="input-group-text">
+                  <TelephoneFill size={18} color="#13405a" />
+                </span>
+                <input
+                  type="text"
+                  className={`form-control shadow-none ${
+                    errors.phone ? "is-invalid" : ""
+                  }`}
+                  placeholder="Numéro de téléphone"
+                  {...register("phone", {
+                    required: "Ce champ est requis",
+                    pattern: {
+                      value: /^[0-9]{10}$/,
+                      message: "Numéro de téléphone invalide",
+                    },
+                  })}
+                />
+              </div>
+              {errors.phone && (
+                <p className="text-danger">{errors.phone.message}</p>
               )}
             </div>
             <div className="form-group mb-3">

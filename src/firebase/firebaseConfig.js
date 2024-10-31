@@ -13,6 +13,8 @@ import {
   setDoc,
   doc,
   getDoc,
+  query,
+  where,
 } from "firebase/firestore"
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage"
 
@@ -48,19 +50,27 @@ export const createUser = async (email, password, userData, file) => {
   // Upload de l'image et obtention de l'URL
   let profileURL = ""
   if (file) {
-    profileURL = await uploadImage(file, "profileImages") // Spécifie le dossier "profileImages"
+    profileURL = await uploadImage(file, "profileImages")
   }
 
-  // Ajoute l'utilisateur à Firestore avec l'URL de l'image
+  // Ajoute l'utilisateur à Firestore avec l'URL de l'image, l'email et le numéro de téléphone
   const user = userCredential.user
-  const userRef = doc(db, "users", user.uid) // Crée la référence utilisateur
+  const userRef = doc(db, "users", user.uid)
   await setDoc(userRef, {
     ...userData,
     uid: user.uid,
     profileURL,
+    email,
+    phone: userData.phone, // Ajout du numéro de téléphone ici
   })
 
-  console.log("Utilisateur créé :", { ...userData, uid: user.uid, profileURL })
+  console.log("Utilisateur créé :", {
+    ...userData,
+    uid: user.uid,
+    profileURL,
+    email,
+    phone: userData.phone,
+  })
   return user
 }
 
@@ -82,12 +92,11 @@ export const getAllUsers = async () => {
 
 // Fonction pour uploader une image dans Firebase Storage
 export const uploadImage = async (file, folderName) => {
-  if (!file) return null // Vérifie si le fichier est présent
+  if (!file) return null
 
-  const storageRef = ref(storage, `${folderName}/${file.name}`) // Utilise le nom du dossier fourni
+  const storageRef = ref(storage, `${folderName}/${file.name}`)
   await uploadBytes(storageRef, file)
 
-  // Récupère l'URL de téléchargement
   const url = await getDownloadURL(storageRef)
   return url
 }
@@ -103,7 +112,7 @@ export const getUserProfile = async (uid) => {
   const userSnapshot = await getDoc(userDoc)
 
   if (userSnapshot.exists()) {
-    return userSnapshot.data() // Retourne les données de l'utilisateur
+    return userSnapshot.data()
   } else {
     throw new Error("Aucun utilisateur trouvé !")
   }
@@ -112,22 +121,73 @@ export const getUserProfile = async (uid) => {
 // Fonction pour ajouter un produit
 export const addProduct = async (uid, productData, file) => {
   try {
-    // Upload de l'image et obtention de l'URL
     const productImageURL = await uploadImage(file, "products")
-
-    // Crée une nouvelle référence pour le produit
     const productRef = doc(collection(db, "products"))
 
-    // Ajoute le produit à Firestore avec l'URL de l'image
     await setDoc(productRef, {
       ...productData,
-      productImageURL, // Enregistre l'URL de l'image
-      uid, // Utilise le uid passé en paramètre
+      productImageURL,
+      uid,
     })
 
     console.log("Produit ajouté avec succès:", productData)
   } catch (error) {
     console.error("Erreur lors de l'ajout du produit:", error)
+  }
+}
+
+// Fonction pour récupérer les produits d'un utilisateur
+export const fetchUserProducts = async (uid) => {
+  try {
+    const q = query(collection(db, "products"), where("uid", "==", uid))
+    const querySnapshot = await getDocs(q)
+    const products = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }))
+    return products
+  } catch (error) {
+    console.error(
+      "Erreur lors de la récupération des produits de l'utilisateur :",
+      error
+    )
+    throw error
+  }
+}
+
+// Fonction pour mettre à jour l'image de profil
+export const updateProfileImage = async (uid, file) => {
+  if (!file) return null
+
+  try {
+    // Uploader la nouvelle image
+    const profileImageURL = await uploadImage(file, "profileImages")
+
+    // Met à jour le document de l'utilisateur dans Firestore
+    const userRef = doc(db, "users", uid)
+    await setDoc(userRef, { profileURL: profileImageURL }, { merge: true })
+
+    console.log("Image de profil mise à jour avec succès :", profileImageURL)
+    return profileImageURL
+  } catch (error) {
+    console.error("Erreur lors de la mise à jour de l'image de profil:", error)
+    throw error // Propager l'erreur pour une gestion ultérieure
+  }
+}
+
+// Fonction pour récupérer tous les produits
+export const getAllProducts = async () => {
+  try {
+    const productsCollection = collection(db, "products")
+    const productsSnapshot = await getDocs(productsCollection)
+    const productsList = productsSnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }))
+    return productsList
+  } catch (error) {
+    console.error("Erreur lors de la récupération des produits:", error)
+    return []
   }
 }
 

@@ -1,0 +1,15 @@
+/* Header.module.css */
+.navLink {
+  transition: border-bottom 0.3s; /* Ajoute une transition douce */
+}
+
+.navLink:hover,
+.activeLink {
+  border-bottom: 2px solid #198754; /* Bordure inférieure en vert (text-success) */
+}
+
+.disabled-link {
+  pointer-events: none; /* Désactive les événements de clic */
+  color: gray; /* Change la couleur pour indiquer qu'il est désactivé */
+  text-decoration: none; /* Retire le soulignement */
+}
