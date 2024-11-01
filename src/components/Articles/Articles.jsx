@@ -88,7 +88,7 @@ const Articles = () => {
               )}
             </ListGroup>
           </div>
-          <div className="col-md-6 d-flex align-items-center">
+          <div className="ms-5 col-md-6 d-flex align-items-center">
             <input
               type="text"
               className="form-control me-2"

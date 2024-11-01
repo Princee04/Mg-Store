@@ -171,7 +171,7 @@ export const updateProfileImage = async (uid, file) => {
     return profileImageURL
   } catch (error) {
     console.error("Erreur lors de la mise à jour de l'image de profil:", error)
-    throw error // Propager l'erreur pour une gestion ultérieure
+    throw error
   }
 }
 

@@ -91,7 +91,7 @@ const Header = () => {
                   Ventes
                 </Link>
               </li>
-              <li className="nav-item me-3">
+              {/* <li className="nav-item me-3">
                 <Link
                   className={`nav-link ${styles.navLink} ${
                     location.pathname === "/blog" ? styles.activeLink : ""
@@ -101,7 +101,7 @@ const Header = () => {
                 >
                   Blog
                 </Link>
-              </li>
+              </li> */}
             </ul>
 
             <div className="d-flex align-items-center">
